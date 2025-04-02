@@ -148,27 +148,16 @@ namespace FireTestingApp.Pages
             if (Option4.IsChecked == true) selectedAnswer = answers.ElementAtOrDefault(3);
             if (Option5.IsChecked == true) selectedAnswer = answers.ElementAtOrDefault(4);
 
-            if (selectedAnswer == null)
-            {
-                MessageBox.Show("Выберите один из вариантов ответа!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
             // ***Теперь сравниваем именно ID!***
-            if (selectedAnswer.AnswerID == correctAnswer.AnswerID)
+            if (selectedAnswer != null && selectedAnswer.AnswerID == correctAnswer.AnswerID)
             {
-                score++;
+                Session.UserScore = score++;
                 debuggg.Content = score;
             }
 
             //currentQuestionIndex++;
             //LoadQuestion();
         }
-
-
-
-
-
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -182,6 +171,8 @@ namespace FireTestingApp.Pages
             else
             {
                 MessageBox.Show("Тест завершён!");
+                Session.UserScore = score;
+                NavigationService.Navigate(new EndPage());
             }
         }
     }

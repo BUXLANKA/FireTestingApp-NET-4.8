@@ -17,20 +17,15 @@ using System.Windows.Shapes;
 namespace FireTestingApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserPage.xaml
+    /// Логика взаимодействия для EndPage.xaml
     /// </summary>
-    public partial class UserPage : Page
+    public partial class EndPage : Page
     {
-        public UserPage()
+        public EndPage()
         {
             InitializeComponent();
 
-            HelloLabel.Text = $"Добро пожаловать, {Session.UserFirstname} {Session.UserLastname}!";
-        }
-
-        private void StartTestButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MainTestPage());
+            ResultLB.Content = $"{Session.UserFirstname} {Session.UserLastname} вы набрали {Session.UserScore}/10";
         }
     }
 }

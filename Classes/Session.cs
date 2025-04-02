@@ -11,5 +11,7 @@ namespace FireTestingApp.Classes
         public static int RoleID;
         public static string UserFirstname;
         public static string UserLastname;
+
+        public static int UserScore;
     }
 }
