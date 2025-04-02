@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\ConnectObject.cs" />
+    <Compile Include="Classes\QuestionLoader.cs" />
     <Compile Include="Classes\Session.cs" />
     <Compile Include="DataApp\Answer.cs">
       <DependentUpon>FSDBModel.tt</DependentUpon>
@@ -125,6 +126,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MainTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +141,9 @@
     </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainTestPage.xaml.cs">
+      <DependentUpon>MainTestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
@@ -175,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataApp\SQL\" />
-    <Folder Include="Pages\Question\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\auto-891-1.png" />
