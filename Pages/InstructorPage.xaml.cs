@@ -31,5 +31,15 @@ namespace FireTestingApp.Pages
             DGUsersResults.ItemsSource = ConnectObject.GetConnect().Results.ToList();
             DGUserAnswers.ItemsSource = ConnectObject.GetConnect().UserAnswers.ToList();
         }
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    NavigationService.Navigate(new TestResultsEditPage());
+        //}
+
+        private void EditUsersButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TestResultsEditPage((sender as Button).DataContext as UserAnswer));
+        }
     }
 }

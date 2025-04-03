@@ -1,6 +1,10 @@
-﻿using System;
+﻿using FireTestingApp.Classes;
+using FireTestingApp.DataApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +24,20 @@ namespace FireTestingApp.Pages
     /// </summary>
     public partial class TestResultsEditPage : Page
     {
-        public TestResultsEditPage()
+        private UserAnswer TempUserAnswer = new UserAnswer();
+        private Result EditedResult = new Result();
+        public TestResultsEditPage(UserAnswer SelectUserAnswer)
         {
             InitializeComponent();
+
+            DataContext = TempUserAnswer;
+
+            //ExamStatusCB.ItemsSource = ConnectObject.GetConnect().TestStatuses.ToList();
+
+            var User = ConnectObject.GetConnect().Users.AsNoTracking()
+                .FirstOrDefault(u => u.UserID == Session.UserID);
+
+            //FirstnameTB.Text = User.UserID.ToString();  
         }
     }
 }
