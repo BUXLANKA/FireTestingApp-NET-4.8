@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireTestingApp.Classes;
+using FireTestingApp.DataApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,11 @@ namespace FireTestingApp.Pages
         public InstructorPage()
         {
             InitializeComponent();
+
+            HelloTB.Text = $"Добро пожаловать, {Session.UserLastname} {Session.UserFirstname}!";
+
+            DGUsersResults.ItemsSource = ConnectObject.GetConnect().Results.ToList();
+            DGUserAnswers.ItemsSource = ConnectObject.GetConnect().UserAnswers.ToList();
         }
     }
 }

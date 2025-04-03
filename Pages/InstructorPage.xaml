@@ -8,7 +8,47 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InstructorPage">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <TabControl>
+
+            <TabItem Header="Результаты тестирования">
+                <Grid Background="#FFE5E5E5">
+
+                    <DataGrid x:Name="DGUsersResults" AutoGenerateColumns="False" Margin="0,0,303,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding User.Firstname}"/>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding User.Lastname}"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding User.Surname}"/>
+                            <DataGridTextColumn Header="Дата сдачи" Binding="{Binding TestDate, StringFormat=dd.MM.yyy | HH:MM}"/>
+                            <DataGridTextColumn Header="Баллы" Binding="{Binding UserScore}"/>
+                            <DataGridTextColumn Header="Статус экзамена" Binding="{Binding TestStatus.Statusname}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="ВЫЙТИ" HorizontalAlignment="Right" Margin="0,303,10,0" VerticalAlignment="Top" Width="278" Height="40"/>
+                    <Button Content="Редактировать" HorizontalAlignment="Right" Margin="0,211,10,0" VerticalAlignment="Top" Width="278" Height="40"/>
+                    <TextBlock x:Name="HelloTB" HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="278" Height="33" TextAlignment="Center"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Пользовательские ответы">
+                <Grid Background="#FFE5E5E5">
+
+                    <DataGrid x:Name="DGUserAnswers" AutoGenerateColumns="False" Margin="0,0,303,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding User.Firstname}"/>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding User.Lastname}"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding User.Surname}"/>
+                            <DataGridTextColumn Header="Вопрос" Binding="{Binding Question.QuestionText}"/>
+                            <DataGridTextColumn Header="Ответ" Binding="{Binding Answer.AnswerText}"/>
+                            <DataGridTextColumn Header="Правильность" Binding="{Binding IsCorrect}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
     </Grid>
 </Page>
