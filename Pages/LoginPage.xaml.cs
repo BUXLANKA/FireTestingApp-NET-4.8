@@ -35,6 +35,7 @@ namespace FireTestingApp.Pages
 
                 if (User != null)
                 {
+                    Session.UserID = User.UserID;
                     Session.RoleID = User.RoleID;
                     Session.UserFirstname = User.Firstname;
                     Session.UserLastname = User.Lastname;

@@ -5,7 +5,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data.Entity;
-using FireTestingApp.Classes;  // Добавь это пространство имен
+using FireTestingApp.Classes;
+using System.Data.Entity.Migrations;
+using System.Linq.Expressions;  // Добавь это пространство имен
 
 namespace FireTestingApp.Pages
 {
@@ -14,6 +16,9 @@ namespace FireTestingApp.Pages
         private int currentQuestionIndex = 0;
         private int score = 0;
         private List<Question> questions;
+
+        private Result CurrentResults = new Result();
+        private UserAnswer CurrentUserAnswer = new UserAnswer();
 
         public MainTestPage()
         {
@@ -75,64 +80,6 @@ namespace FireTestingApp.Pages
             Option4.Content = answers[3].AnswerText;
             Option5.Content = answers[4].AnswerText;
         }
-        //private void CheckIsCorrect()
-        //{
-        //    var IsCorrectAnswer = ConnectObject.GetConnect().Answers.ToString();
-        //    var question = questions[currentQuestionIndex];
-        //    var answers = question.Answers.ToList();
-        //    var SelectedOf = string.Empty;
-
-        //    if (Option1.IsChecked == true) SelectedOf = answers[0].AnswerText;
-        //    if (Option2.IsChecked == true) SelectedOf = answers[1].AnswerText;
-        //    if (Option3.IsChecked == true) SelectedOf = answers[2].AnswerText;
-        //    if (Option4.IsChecked == true) SelectedOf = answers[3].AnswerText;
-        //    if (Option5.IsChecked == true) SelectedOf = answers[4].AnswerText;
-
-        //    if(SelectedOf != null && IsCorrectAnswer == "true")
-        //    {
-        //        score++;
-        //    }
-        //}\
-
-        // Пример перехода к следующему вопросу
-        //private void CheckIsCorrect()
-        //{
-        //    // Получаем текущий вопрос
-        //    var question = questions[currentQuestionIndex];
-
-        //    // Преобразуем коллекцию ответов в список для удобства
-        //    var answers = question.Answers.ToList();
-
-        //    // Получаем правильный ответ из БД
-        //    var correctAnswer = answers.FirstOrDefault(a => a.IsCorrectAnswer)?.AnswerText;
-
-        //    // Определяем, какой ответ выбрал пользователь
-        //    string selectedAnswer = null;
-
-        //    if (Option1.IsChecked == true && answers.Count > 0) selectedAnswer = answers[0].AnswerText;
-        //    if (Option2.IsChecked == true && answers.Count > 1) selectedAnswer = answers[1].AnswerText;
-        //    if (Option3.IsChecked == true && answers.Count > 2) selectedAnswer = answers[2].AnswerText;
-        //    if (Option4.IsChecked == true && answers.Count > 3) selectedAnswer = answers[3].AnswerText;
-        //    if (Option5.IsChecked == true && answers.Count > 4) selectedAnswer = answers[4].AnswerText;
-
-        //    // Проверяем, был ли вообще выбран вариант ответа
-        //    if (string.IsNullOrEmpty(selectedAnswer))
-        //    {
-        //        MessageBox.Show("Выберите один из вариантов ответа!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-        //        return;  // Если ответа нет, дальше не идём
-        //    }
-
-        //    // Проверяем, правильный ли ответ
-        //    if (selectedAnswer == correctAnswer)
-        //    {
-        //        score++;  // Начисляем очки
-        //    }
-
-        //    debuggg.Content = score.ToString();
-        //    // Переход к следующему вопросу
-        //    currentQuestionIndex++;
-        //    LoadQuestion();
-        //}
 
         private void CheckIsCorrect()
         {
@@ -148,30 +95,79 @@ namespace FireTestingApp.Pages
             if (Option4.IsChecked == true) selectedAnswer = answers.ElementAtOrDefault(3);
             if (Option5.IsChecked == true) selectedAnswer = answers.ElementAtOrDefault(4);
 
+            CurrentUserAnswer.UserID = Session.UserID;
+            CurrentUserAnswer.QuestionID = question.QuestionID;
+            CurrentUserAnswer.AnswerID = selectedAnswer?.AnswerID;
+
             // ***Теперь сравниваем именно ID!***
             if (selectedAnswer != null && selectedAnswer.AnswerID == correctAnswer.AnswerID)
             {
-                Session.UserScore = score++;
+                score++;
                 debuggg.Content = score;
+                CurrentUserAnswer.IsCorrect = true;
+            }
+            else
+            {
+                CurrentUserAnswer.IsCorrect = false;
             }
 
-            //currentQuestionIndex++;
-            //LoadQuestion();
+            ConnectObject.GetConnect().UserAnswers.Add(CurrentUserAnswer);
+
+            try
+            {
+                ConnectObject.GetConnect().SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
+            CheckIsCorrect();
+
             if (currentQuestionIndex < questions.Count - 1)
             {
-                CheckIsCorrect();
-
                 currentQuestionIndex++;
                 LoadQuestion();
             }
             else
             {
                 MessageBox.Show("Тест завершён!");
+
                 Session.UserScore = score;
+
+                CurrentResults.UserID = Session.UserID;
+                CurrentResults.TestDate = DateTime.Now;
+                CurrentResults.UserScore = Session.UserScore;
+
+                if(score >= 8)
+                {
+                    CurrentResults.StatusID = 1;
+                }
+                else
+                {
+                    CurrentResults.StatusID = 2;
+                }
+
+                ConnectObject.GetConnect().Results.Add(CurrentResults);
+
+                try
+                {
+                    ConnectObject.GetConnect().SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+
+
+
+
+
                 NavigationService.Navigate(new EndPage());
             }
         }
