@@ -25,15 +25,11 @@ namespace FireTestingApp.Pages
         public InstructorPage()
         {
             InitializeComponent();
-
-            if (Visibility == Visibility.Visible)
-            {
-                DGUsersResults.ItemsSource = ConnectObject.connect.Results.ToList();
-            }
+            //DGUsersResults.ItemsSource = ConnectObject.connect.Results;
 
             HelloTB.Text = $"Добро пожаловать, {Session.UserLastname} {Session.UserFirstname}!";
 
-            DGUsersResults.ItemsSource = ConnectObject.GetConnect().Results.ToList();
+            //DGUsersResults.ItemsSource = ConnectObject.GetConnect().Results.ToList();
             DGUserAnswers.ItemsSource = ConnectObject.GetConnect().UserAnswers.ToList();
         }
 
@@ -45,6 +41,20 @@ namespace FireTestingApp.Pages
         private void EditUsersButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TestResultsEditPage((sender as Button).DataContext as Result));
+        }
+
+        private void ExitButton_Click(Object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new LoginPage());
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                //ConnectObject.GetConnect().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGUsersResults.ItemsSource = ConnectObject.GetConnect().Results.ToList();
+            }
         }
     }
 }

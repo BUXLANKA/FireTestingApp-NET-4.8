@@ -54,7 +54,7 @@ namespace FireTestingApp.Pages
         }
         private void SaveDataButton_Click(Object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(TBUserScore.Text))
+            if (!string.IsNullOrWhiteSpace(TBUserScore.Text) && CBExamStatus.SelectedValue != null)
             {
                 TempUser.UserScore = Convert.ToInt32(TBUserScore.Text);
                 TempUser.StatusID = Convert.ToInt32(CBExamStatus.SelectedValue.ToString());
@@ -70,6 +70,10 @@ namespace FireTestingApp.Pages
                     throw;
                 }
                 NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show($"err");
             }
         }
     }

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="InstructorPage">
+      Title="InstructorPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid Background="White">
         <TabControl>
@@ -14,7 +14,7 @@
             <TabItem Header="Результаты тестирования">
                 <Grid Background="#FFE5E5E5">
 
-                    <DataGrid x:Name="DGUsersResults" AutoGenerateColumns="False" Margin="0,0,303,0">
+                    <DataGrid x:Name="DGUsersResults" AutoGenerateColumns="False" ColumnWidth="auto" IsReadOnly="True" Margin="0,0,303,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Имя" Binding="{Binding User.Firstname}"/>
                             <DataGridTextColumn Header="Фамилия" Binding="{Binding User.Lastname}"/>
@@ -31,8 +31,7 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="ВЫЙТИ" HorizontalAlignment="Right" Margin="0,303,10,0" VerticalAlignment="Top" Width="278" Height="40"/>
-                    <Button Content="Редактировать" HorizontalAlignment="Right" Margin="0,211,10,0" VerticalAlignment="Top" Width="278" Height="40"/>
+                    <Button Content="ВЫЙТИ" HorizontalAlignment="Right" Margin="0,303,10,0" VerticalAlignment="Top" Width="278" Height="40" Click="ExitButton_Click"/>
                     <TextBlock x:Name="HelloTB" HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="278" Height="33" TextAlignment="Center"/>
 
                 </Grid>
@@ -41,12 +40,18 @@
             <TabItem Header="Пользовательские ответы">
                 <Grid Background="#FFE5E5E5">
 
-                    <DataGrid x:Name="DGUserAnswers" AutoGenerateColumns="False" Margin="0,0,303,0">
+                    <DataGrid x:Name="DGUserAnswers" AutoGenerateColumns="False" ColumnWidth="auto" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Имя" Binding="{Binding User.Firstname}"/>
                             <DataGridTextColumn Header="Фамилия" Binding="{Binding User.Lastname}"/>
                             <DataGridTextColumn Header="Отчество" Binding="{Binding User.Surname}"/>
-                            <DataGridTextColumn Header="Вопрос" Binding="{Binding Question.QuestionText}"/>
+                            <DataGridTextColumn Header="Вопрос" Binding="{Binding Question.QuestionText}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Ответ" Binding="{Binding Answer.AnswerText}"/>
                             <DataGridTextColumn Header="Правильность" Binding="{Binding IsCorrect}"/>
                         </DataGrid.Columns>
