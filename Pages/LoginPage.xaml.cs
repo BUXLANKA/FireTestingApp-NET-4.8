@@ -25,6 +25,8 @@ namespace FireTestingApp.Pages
         public LoginPage()
         {
             InitializeComponent();
+
+            TB_Login.Focus();
         }
 
         private void EnterButton_Click(object sender, RoutedEventArgs e)
@@ -32,9 +34,9 @@ namespace FireTestingApp.Pages
             if(!string.IsNullOrWhiteSpace(TB_Login.Text) || !string.IsNullOrWhiteSpace(TB_Password.Password))
             {
                 var User = ConnectObject.GetConnect().Users.AsNoTracking()
-                    .FirstOrDefault(u => u.UserLogin == TB_Login.Text && u.UserPassword == TB_Password.Password);
+                    .FirstOrDefault(u => u.UserLogin == TB_Login.Text);
 
-                if (User != null)
+                if (User != null && User.UserLogin == TB_Login.Text && User.UserPassword == TB_Password.Password)
                 {
                     Session.UserID = User.UserID;
                     Session.RoleID = User.RoleID;
@@ -46,29 +48,49 @@ namespace FireTestingApp.Pages
                         case 1:
                             NavigationService.Navigate(new InstructorPage());
                             break;
+
                         case 2:
                             NavigationService.Navigate(new RevisorPage());
                             break;
-                        case 3:
 
+                        case 3:
                             var ExamDateRestrict = ConnectObject.GetConnect().Results.AsNoTracking()
                                 .FirstOrDefault(t => t.UserID == Session.UserID);
 
-                            if ((DateTime.Now - ExamDateRestrict.TestDate).TotalDays <= 31)
-                            {
-                                MessageBox.Show(
-                                    "Повторная сдача будет доступна после 31 дня с момента последней сдачи.\nЗа подробностями обратитесь к инструктору.",
-                                    "Информация",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Information);
-                            }
-                            else
-                            {
-                                NavigationService.Navigate(new UserPage());
-                            }
+                            //if ((DateTime.Now - ExamDateRestrict.TestDate).TotalDays <= 31)
+                            //{
+                            //    MessageBox.Show(
+                            //        "Повторная сдача будет доступна после 31 дня с момента последней сдачи.\nЗа подробностями обратитесь к инструктору.",
+                            //        "Информация",
+                            //        MessageBoxButton.OK,
+                            //        MessageBoxImage.Information);
+                            //}
+                            //else
+                            //{
+                            //    NavigationService.Navigate(new UserPage());
+                            //}
+
+                            NavigationService.Navigate(new UserPage());
                             break;
                     }
                 }
+                else
+                {
+                   MessageBox.Show(
+                       "Неправильный логин или пароль",
+                       "Ошибка авторизации",
+                       MessageBoxButton.OK,
+                       MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Введите логин и пароль",
+                    "Пусто? Пусто!",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                TB_Login.Focus();
             }
         }
     }

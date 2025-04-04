@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="670" d:DesignWidth="1087"
       Title="UserPage">
 
     <Grid Background="White">
-        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="177" Width="652" Margin="0,70,0,0" FontWeight="Bold" TextAlignment="Center" FontSize="20"><Run Language="ru-ru" Text="Этот тест по пожарной безопасности направлен на проверку полученных знаний по основам пожарной безопасности стажерами МЧС России"/><LineBreak/><Run Language="ru-ru"/><LineBreak/><Run Language="ru-ru" Text="Вам будет представлено 10 тестовых вопросов. Время выполнения тестирования не ограничено. Удачи!"/></TextBlock>
-        <Button x:Name="StartTestButton" Content="НАЧАТЬ ТЕСТИРОВАНИЕ" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Width="428" Height="44" Click="StartTestButton_Click"/>
-        <TextBlock x:Name="HelloLabel" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="32" Width="428" TextAlignment="Center" FontSize="14"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Height="244" Width="652" FontWeight="Bold" TextAlignment="Center" FontSize="20" Margin="218,0,217,0"><Run Text="Этот тест направлен на проверку "/><Run Text="фундаментальных"/><Run Text=" знаний по основам пожарной безопасности стажерами МЧС России"/><LineBreak/><Run/><LineBreak/><Run Text="Вам будет представлено 10 тестовых вопросов. "/><LineBreak/><Run/><LineBreak/><Run Text="Время выполнения тестирования не ограничено"/><Run Language="ru-ru" Text="."/><Run/><LineBreak/><Run Language="ru-ru" Text="В"/><Run Text="озвратиться к прошлому вопросу нельзя"/><Run Text=" "/><LineBreak/><Run/><LineBreak/><Run Text="Удачи!"/></TextBlock>
+        <Button x:Name="StartTestButton" Content="НАЧАТЬ ТЕСТИРОВАНИЕ" Width="428" Height="44" Click="StartTestButton_Click" Margin="330,491,329,0"/>
+        <TextBlock x:Name="HelloLabel" HorizontalAlignment="Center" Margin="0,158,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="32" Width="428" TextAlignment="Center" FontSize="16"/>
 
     </Grid>
 </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FireTestingApp"
         mc:Ignorable="d"
-        Title="Пожарная безопасность" Height="670" Width="1087">
+        Title="КСТ 'Пожарная безопаность'" Height="670" Width="1087">
     <Grid>
         <Frame Source="Pages/LoginPage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>

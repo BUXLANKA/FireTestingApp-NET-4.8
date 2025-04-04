@@ -103,7 +103,6 @@ namespace FireTestingApp.Pages
             if (selectedAnswer != null && selectedAnswer.AnswerID == correctAnswer.AnswerID)
             {
                 score++;
-                debuggg.Content = score;
                 CurrentUserAnswer.IsCorrect = true;
             }
             else

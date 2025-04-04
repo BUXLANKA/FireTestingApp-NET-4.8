@@ -5,18 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="670" d:DesignWidth="1087"
       Title="MainTestPage">
 
     <Grid Background="White">
-        <TextBlock x:Name="QuestionTB" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="215" Width="780" FontSize="18"/>
-        <RadioButton x:Name="Option1" Content="RadioButton" HorizontalAlignment="Left" Margin="10,256,0,0" VerticalAlignment="Top" FontSize="16" Height="37" Width="260"/>
-        <RadioButton x:Name="Option2" Content="RadioButton" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" FontSize="16" Height="37" Width="260"/>
-        <RadioButton x:Name="Option3" Content="RadioButton" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top" FontSize="16" Height="36" Width="260"/>
-        <RadioButton x:Name="Option4" Content="RadioButton" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top" FontSize="16" Height="37" Width="260"/>
-        <RadioButton x:Name="Option5" Content="RadioButton" HorizontalAlignment="Left" Margin="10,403,0,0" VerticalAlignment="Top" FontSize="16" Height="37" Width="260"/>
-        <Button x:Name="NextButton" Content="ДАЛЕЕ" HorizontalAlignment="Left" Margin="508,320,0,0" VerticalAlignment="Top" Height="56" Width="219" Click="NextButton_Click"/>
-        <Label x:Name="debuggg" Content="Label" HorizontalAlignment="Left" Margin="530,274,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="QuestionTB" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="215" Width="1057" FontSize="18" Foreground="Black" HorizontalAlignment="Left"/>
+        <RadioButton x:Name="Option1" Content="RadioButton" Margin="10,269,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1054" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <RadioButton x:Name="Option2" Content="RadioButton" Margin="10,311,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1056" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <RadioButton x:Name="Option3" Content="RadioButton" Margin="10,353,0,0" VerticalAlignment="Top" FontSize="18" Height="36" Width="1056" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <RadioButton x:Name="Option4" Content="RadioButton" Margin="10,394,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1054" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <RadioButton x:Name="Option5" Content="RadioButton" Margin="10,436,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1056" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="NextButton" Content="ДАЛЕЕ" Height="56" Width="218" Click="NextButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,535,0,0"/>
 
     </Grid>
 </Page>

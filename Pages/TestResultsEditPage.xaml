@@ -5,25 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="670" d:DesignWidth="1087"
       Title="TestResultsEditPage">
 
     <Grid Background="White">
-        <TextBox x:Name="TBFirstname" Text="{Binding User.Firstname}" HorizontalAlignment="Center" Margin="0,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TBFirstname" Text="{Binding User.Firstname}" HorizontalAlignment="Center" Margin="0,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="22"/>
 
-        <TextBox x:Name="TBLastname" HorizontalAlignment="Center" Margin="0,230,0,0" TextWrapping="Wrap" Text="{Binding User.Lastname}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TBLastname" HorizontalAlignment="Center" Margin="0,152,0,0" TextWrapping="Wrap" Text="{Binding User.Lastname}" VerticalAlignment="Top" Width="160" Height="22"/>
 
-        <TextBox x:Name="TBSurname" HorizontalAlignment="Center" Margin="0,253,0,0" TextWrapping="Wrap" Text="{Binding User.Surname}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TBSurname" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding User.Surname}" VerticalAlignment="Top" Width="160" Height="22" Margin="0,181,0,0"/>
 
-        <DatePicker x:Name="DPExamDate" SelectedDate="{Binding TestDate}" HorizontalAlignment="Center" Margin="0,276,0,0" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="DPExamDate" SelectedDate="{Binding TestDate}" HorizontalAlignment="Center" Margin="0,209,0,0" VerticalAlignment="Top" Width="160" Height="29"/>
 
-        <TextBox x:Name="TBUserScore" HorizontalAlignment="Center" Margin="0,305,0,0" TextWrapping="Wrap" Text="{Binding UserScore}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TBUserScore" HorizontalAlignment="Center" Margin="0,245,0,0" TextWrapping="Wrap" Text="{Binding UserScore}" VerticalAlignment="Top" Width="160" Height="22"/>
 
-        <ComboBox x:Name="CBExamStatus" SelectedValue="{Binding Result}" DisplayMemberPath="Statusname" SelectedValuePath="StatusID" HorizontalAlignment="Center" Margin="0,328,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label HorizontalContentAlignment="Right" Content="Статус теста:" Margin="212,273,485,0" VerticalAlignment="Top" Width="103" Height="27" VerticalContentAlignment="Stretch"/>
+        <ComboBox x:Name="CBExamStatus" SelectedValue="{Binding Result}" DisplayMemberPath="Statusname" SelectedValuePath="StatusID" HorizontalAlignment="Center" Margin="0,273,0,0" VerticalAlignment="Top" Width="160" Height="27"/>
 
-        <Button Content="Button" HorizontalAlignment="Left" Margin="712,420,0,0" VerticalAlignment="Top" Width="78" Click="GoBackButton_Click"/>
-        
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,387,0,0" VerticalAlignment="Top" Width="120" Click="SaveDataButton_Click"/>
+        <Button Content="Отмена" HorizontalAlignment="Center" Margin="568,346,0,0" VerticalAlignment="Top" Width="78" Click="GoBackButton_Click" Height="36"/>
+
+        <Button Content="Сохранить и закрыть" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Width="160" Click="SaveDataButton_Click" Height="36"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,20,0,0" Width="492" FontSize="20" FontWeight="Bold" TextAlignment="Center" Height="57"><Run Language="ru-ru" Text="Редактор результатов"/></TextBlock>
+        <Label HorizontalContentAlignment="Right" Content="Баллы:" Margin="212,245,485,0" VerticalAlignment="Top" Width="103" Height="23"/>
+        <Label HorizontalContentAlignment="Right" Content="Дата сдачи:" Margin="212,209,485,0" VerticalAlignment="Top" Width="103" Height="29"/>
+        <Label HorizontalContentAlignment="Right" Content="Отчество" Margin="212,180,485,0" VerticalAlignment="Top" Width="103" Height="23"/>
+        <Label HorizontalContentAlignment="Right" Content="Фамилия" Margin="212,152,485,0" VerticalAlignment="Top" Width="103" Height="22"/>
+        <Label Content="Имя" Margin="212,124,485,0" VerticalAlignment="Top" Width="103" Height="22" HorizontalContentAlignment="Right"/>
+
 
 
     </Grid>

@@ -25,8 +25,8 @@ namespace FireTestingApp
         {
             InitializeComponent();
 
-            this.MinHeight = 450;
-            this.MinWidth = 800;
+            this.MinHeight = 670;
+            this.MinWidth = 1087;
         }
     }
 }

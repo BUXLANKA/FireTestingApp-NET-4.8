@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="670" d:DesignWidth="1087"
       Title="EndPage">
 
     <Grid Background="White">
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="71" Width="780" TextAlignment="Center" FontSize="40" FontWeight="Bold"><Run Language="ru-ru" Text="РЕЗУЛЬТАТЫ ТЕСТА"/></TextBlock>
-        <TextBlock x:Name="ResultLB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" Width="432" Height="40" TextAlignment="Center" FontSize="14" Margin="0,185,0,225"/>
-        <Button Click="ExitButton_Click" Content="Завершить и выйти" HorizontalAlignment="Center" Width="260" Height="51" Margin="0,252,0,147"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="780" TextAlignment="Center" FontSize="40" FontWeight="Bold"><Run Language="ru-ru" Text="РЕЗУЛЬТАТЫ ТЕСТА"/></TextBlock>
+        <TextBlock x:Name="ResultLB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" Width="432" Height="40" TextAlignment="Center" FontSize="16" VerticalAlignment="Top" Margin="0,185,0,0"/>
+        <Button Click="ExitButton_Click" Content="Завершить и выйти" Width="260" Height="51" VerticalAlignment="Top" Margin="270,354,270,0" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>
