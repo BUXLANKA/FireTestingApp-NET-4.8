@@ -1,4 +1,5 @@
 ﻿using FireTestingApp.Classes;
+using FireTestingApp.DataApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,22 @@ namespace FireTestingApp.Pages
                             NavigationService.Navigate(new RevisorPage());
                             break;
                         case 3:
-                            NavigationService.Navigate(new UserPage());
+
+                            var ExamDateRestrict = ConnectObject.GetConnect().Results.AsNoTracking()
+                                .FirstOrDefault(t => t.UserID == Session.UserID);
+
+                            if ((DateTime.Now - ExamDateRestrict.TestDate).TotalDays <= 31)
+                            {
+                                MessageBox.Show(
+                                    "Повторная сдача будет доступна после 31 дня с момента последней сдачи.\nЗа подробностями обратитесь к инструктору.",
+                                    "Информация",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
+                            }
+                            else
+                            {
+                                NavigationService.Navigate(new UserPage());
+                            }
                             break;
                     }
                 }

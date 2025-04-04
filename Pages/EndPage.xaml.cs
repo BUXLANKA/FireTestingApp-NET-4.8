@@ -25,7 +25,12 @@ namespace FireTestingApp.Pages
         {
             InitializeComponent();
 
-            ResultLB.Content = $"{Session.UserFirstname} {Session.UserLastname} вы набрали {Session.UserScore}/10";
+            ResultLB.Text = $"{Session.UserFirstname} {Session.UserLastname} вы набрали {Session.UserScore}/10";
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new LoginPage());
         }
     }
 }
