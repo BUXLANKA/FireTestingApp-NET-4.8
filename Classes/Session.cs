@@ -14,7 +14,5 @@ namespace FireTestingApp.Classes
 
         public static int UserID;
         public static int UserScore;
-        public static int QuestionIndex;
-        public static int AnswerIndex;
     }
 }

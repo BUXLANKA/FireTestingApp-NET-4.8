@@ -202,9 +202,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataApp\SQL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\auto-891-1.png" />
   </ItemGroup>
@@ -222,6 +220,7 @@
       <DependentUpon>FSDBModel.edmx</DependentUpon>
       <LastGenOutput>FSDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="DataApp\SQL\DB-DUMP.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
