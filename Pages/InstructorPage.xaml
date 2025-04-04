@@ -22,7 +22,7 @@
                             <DataGridTextColumn Header="Дата сдачи" Binding="{Binding TestDate, StringFormat=dd.MM.yyy | HH:MM}"/>
                             <DataGridTextColumn Header="Баллы" Binding="{Binding UserScore}"/>
                             <DataGridTextColumn Header="Статус экзамена" Binding="{Binding TestStatus.Statusname}"/>
-                            <DataGridTemplateColumn Header="действия">
+                            <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Content="Редактировать" Click="EditUsersButton_Click"></Button>

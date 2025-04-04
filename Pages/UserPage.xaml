@@ -9,8 +9,8 @@
       Title="UserPage">
 
     <Grid Background="White">
-        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Height="244" Width="652" FontWeight="Bold" TextAlignment="Center" FontSize="20" Margin="218,0,217,0"><Run Text="Этот тест направлен на проверку "/><Run Text="фундаментальных"/><Run Text=" знаний по основам пожарной безопасности стажерами МЧС России"/><LineBreak/><Run/><LineBreak/><Run Text="Вам будет представлено 10 тестовых вопросов. "/><LineBreak/><Run/><LineBreak/><Run Text="Время выполнения тестирования не ограничено"/><Run Language="ru-ru" Text="."/><Run/><LineBreak/><Run Language="ru-ru" Text="В"/><Run Text="озвратиться к прошлому вопросу нельзя"/><Run Text=" "/><LineBreak/><Run/><LineBreak/><Run Text="Удачи!"/></TextBlock>
-        <Button x:Name="StartTestButton" Content="НАЧАТЬ ТЕСТИРОВАНИЕ" Width="428" Height="44" Click="StartTestButton_Click" Margin="330,491,329,0"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Height="244" Width="652" FontWeight="Bold" TextAlignment="Center" FontSize="20" HorizontalAlignment="Center"><Run Text="Этот тест направлен на проверку "/><Run Text="фундаментальных"/><Run Text=" знаний по основам пожарной безопасности стажерами МЧС России"/><LineBreak/><Run/><LineBreak/><Run Text="Вам будет представлено 10 тестовых вопросов. "/><LineBreak/><Run/><LineBreak/><Run Text="Время выполнения тестирования не ограничено"/><Run Language="ru-ru" Text="."/><Run/><LineBreak/><Run Language="ru-ru" Text="В"/><Run Text="озвратиться к прошлому вопросу нельзя"/><Run Text=" "/><LineBreak/><Run/><LineBreak/><Run Text="Удачи!"/></TextBlock>
+        <Button x:Name="StartTestButton" Content="НАЧАТЬ ТЕСТИРОВАНИЕ" Height="44" Click="StartTestButton_Click" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,500,0,0" Width="307"/>
         <TextBlock x:Name="HelloLabel" HorizontalAlignment="Center" Margin="0,158,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="32" Width="428" TextAlignment="Center" FontSize="16"/>
 
     </Grid>
