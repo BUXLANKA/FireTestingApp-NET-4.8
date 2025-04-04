@@ -46,7 +46,7 @@ namespace FireTestingApp.Pages
                             NavigationService.Navigate(new InstructorPage());
                             break;
                         case 2:
-                            //NavigationService.Navigate(new RoutedEvent());
+                            NavigationService.Navigate(new RevisorPage());
                             break;
                         case 3:
                             NavigationService.Navigate(new UserPage());
