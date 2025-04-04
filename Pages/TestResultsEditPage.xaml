@@ -9,6 +9,22 @@
       Title="TestResultsEditPage">
 
     <Grid Background="White">
+        <TextBox x:Name="TBFirstname" Text="{Binding User.Firstname}" HorizontalAlignment="Center" Margin="0,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="TBLastname" HorizontalAlignment="Center" Margin="0,230,0,0" TextWrapping="Wrap" Text="{Binding User.Lastname}" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="TBSurname" HorizontalAlignment="Center" Margin="0,253,0,0" TextWrapping="Wrap" Text="{Binding User.Surname}" VerticalAlignment="Top" Width="120"/>
+
+        <DatePicker x:Name="DPExamDate" SelectedDate="{Binding TestDate}" HorizontalAlignment="Center" Margin="0,276,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox x:Name="TBUserScore" HorizontalAlignment="Center" Margin="0,305,0,0" TextWrapping="Wrap" Text="{Binding UserScore}" VerticalAlignment="Top" Width="120"/>
+
+        <ComboBox x:Name="CBExamStatus" SelectedValue="{Binding Result}" DisplayMemberPath="Statusname" SelectedValuePath="StatusID" HorizontalAlignment="Center" Margin="0,328,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Button Content="Button" HorizontalAlignment="Left" Margin="712,420,0,0" VerticalAlignment="Top" Width="78" Click="GoBackButton_Click"/>
+        
+        <Button Content="Button" HorizontalAlignment="Center" Margin="0,387,0,0" VerticalAlignment="Top" Width="120" Click="SaveDataButton_Click"/>
+
 
     </Grid>
 </Page>

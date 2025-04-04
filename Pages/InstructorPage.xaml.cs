@@ -26,6 +26,11 @@ namespace FireTestingApp.Pages
         {
             InitializeComponent();
 
+            if (Visibility == Visibility.Visible)
+            {
+                DGUsersResults.ItemsSource = ConnectObject.connect.Results.ToList();
+            }
+
             HelloTB.Text = $"Добро пожаловать, {Session.UserLastname} {Session.UserFirstname}!";
 
             DGUsersResults.ItemsSource = ConnectObject.GetConnect().Results.ToList();
@@ -39,7 +44,7 @@ namespace FireTestingApp.Pages
 
         private void EditUsersButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new TestResultsEditPage((sender as Button).DataContext as UserAnswer));
+            NavigationService.Navigate(new TestResultsEditPage((sender as Button).DataContext as Result));
         }
     }
 }

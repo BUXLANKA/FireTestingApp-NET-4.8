@@ -24,20 +24,53 @@ namespace FireTestingApp.Pages
     /// </summary>
     public partial class TestResultsEditPage : Page
     {
-        private UserAnswer TempUserAnswer = new UserAnswer();
-        private Result EditedResult = new Result();
-        public TestResultsEditPage(UserAnswer SelectUserAnswer)
+        private Result TempUser = new Result();
+
+        public TestResultsEditPage(Result SelectUser)
         {
             InitializeComponent();
 
-            DataContext = TempUserAnswer;
+            if (SelectUser != null)
+            {
+                TempUser = SelectUser;
+            }
 
-            //ExamStatusCB.ItemsSource = ConnectObject.GetConnect().TestStatuses.ToList();
+            TBFirstname.IsEnabled = false;
+            TBLastname.IsEnabled = false;
+            TBSurname.IsEnabled = false;
 
-            var User = ConnectObject.GetConnect().Users.AsNoTracking()
-                .FirstOrDefault(u => u.UserID == Session.UserID);
+            DataContext = TempUser;
+            CBExamStatus.ItemsSource = ConnectObject.GetConnect().TestStatuses.ToList();
 
-            //FirstnameTB.Text = User.UserID.ToString();  
+            // вывод айди выбранного пользователя
+            CBExamStatus.SelectedValue = TempUser.StatusID;
+
+
+        }
+
+        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+        private void SaveDataButton_Click(Object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TBUserScore.Text))
+            {
+                TempUser.UserScore = Convert.ToInt32(TBUserScore.Text);
+                TempUser.StatusID = Convert.ToInt32(CBExamStatus.SelectedValue.ToString());
+
+                try
+                {
+                    ConnectObject.GetConnect().SaveChanges();
+                    MessageBox.Show($"done!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message );
+                    throw;
+                }
+                NavigationService.GoBack();
+            }
         }
     }
 }
