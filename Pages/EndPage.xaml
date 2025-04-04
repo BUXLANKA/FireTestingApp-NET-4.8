@@ -11,7 +11,7 @@
     <Grid Background="White">
         <TextBlock HorizontalAlignment="Center" Margin="0,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="780" TextAlignment="Center" FontSize="40" FontWeight="Bold"><Run Language="ru-ru" Text="РЕЗУЛЬТАТЫ ТЕСТА"/></TextBlock>
         <TextBlock x:Name="ResultLB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" Width="432" Height="40" TextAlignment="Center" FontSize="16" VerticalAlignment="Top" Margin="0,185,0,0"/>
-        <Button Click="ExitButton_Click" Content="Завершить и выйти" Width="260" Height="51" VerticalAlignment="Top" Margin="270,354,270,0" HorizontalAlignment="Center"/>
+        <Button Click="ExitButton_Click" Content="Завершить" Width="260" Height="51" VerticalAlignment="Top" Margin="270,354,270,0" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>
