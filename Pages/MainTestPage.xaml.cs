@@ -13,11 +13,19 @@ namespace FireTestingApp.Pages
 {
     public partial class MainTestPage : Page
     {
+        //Номер текущего вопроса
         private int currentQuestionIndex = 0;
+
+        // Количество бвллов
         private int score = 0;
+
+        // Список всех вопросов, загруженных из базы данных вместе с ответами
         private List<Question> questions;
 
+        //Объект для хранения итогового результата конкретного пользователя
         private Result CurrentResults = new Result();
+
+        //Объект для хранения ответа пользователя на текущий вопрос
         private UserAnswer CurrentUserAnswer = new UserAnswer();
 
         public MainTestPage()
@@ -27,7 +35,7 @@ namespace FireTestingApp.Pages
             // Подключаемся к базе данных и загружаем вопросы с ответами
             using (var context = new FireSafetyDBEntities())
             {
-                // Загружаем все вопросы с их ответами с использованием Include для жадной загрузки
+                // Загружаем все вопросы с их ответами
                 var questionsFromDb = context.Questions.Include(q => q.Answers).ToList();
 
                 // Собираем всё в список
@@ -38,21 +46,12 @@ namespace FireTestingApp.Pages
                     Answers = q.Answers.ToList()  // Преобразуем ICollection<Answer> в List<Answer>
                 }).ToList();
             }
-
-            // Проверяем, что есть вопросы
-            if (questions.Count == 0)
-            {
-                MessageBox.Show("Нет доступных вопросов.");
-                return;
-            }
-
             // Загружаем первый вопрос
             LoadQuestion();
         }
 
         private void LoadQuestion()
         {
-            //MessageBox.Show(currentQuestionIndex.ToString());
             // Получаем текущий вопрос
             var question = questions[currentQuestionIndex];
 
@@ -72,7 +71,7 @@ namespace FireTestingApp.Pages
             Option4.Content = null;
             Option5.Content = null;
 
-            // Добавляем ответы в RadioButton (если их меньше 5)
+            // Добавляем ответы в RadioButton
             var answers = question.Answers.ToList();
             Option1.Content = answers[0].AnswerText;
             Option2.Content = answers[1].AnswerText;
@@ -134,8 +133,6 @@ namespace FireTestingApp.Pages
             }
             else
             {
-                MessageBox.Show("Тест завершён!");
-
                 Session.UserScore = score;
 
                 CurrentResults.UserID = Session.UserID;
@@ -162,11 +159,6 @@ namespace FireTestingApp.Pages
                     MessageBox.Show(ex.Message);
                     throw;
                 }
-
-
-
-
-
                 NavigationService.Navigate(new EndPage());
             }
         }

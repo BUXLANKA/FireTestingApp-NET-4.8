@@ -24,6 +24,8 @@ namespace FireTestingApp.Pages
         public RevisorPage()
         {
             InitializeComponent();
+
+            HelloTB.Text = $"Добро пожаловать {Session.UserFirstname} {Session.UserLastname}!";
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
