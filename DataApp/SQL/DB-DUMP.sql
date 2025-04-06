@@ -1,11 +1,13 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [FireSafetyDB]    Script Date: 04.04.2025 17:28:43 ******/
+/****** Object:  Database [FireSafetyDB]    Script Date: 06.04.2025 18:07:59 ******/
 CREATE DATABASE FireSafetyDB
 GO
+
 USE FireSafetyDB
 GO
-/****** Object:  Table [dbo].[Answers]    Script Date: 04.04.2025 17:28:44 ******/
+
+/****** Object:  Table [dbo].[Answers]    Script Date: 06.04.2025 18:07:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21,7 +23,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Questions]    Script Date: 04.04.2025 17:28:44 ******/
+/****** Object:  Table [dbo].[Questions]    Script Date: 06.04.2025 18:07:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -35,7 +37,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Results]    Script Date: 04.04.2025 17:28:44 ******/
+/****** Object:  Table [dbo].[Results]    Script Date: 06.04.2025 18:07:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -52,7 +54,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 04.04.2025 17:28:44 ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 06.04.2025 18:07:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -66,7 +68,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TestStatuses]    Script Date: 04.04.2025 17:28:44 ******/
+/****** Object:  Table [dbo].[TestStatuses]    Script Date: 06.04.2025 18:07:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -80,7 +82,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserAnswers]    Script Date: 04.04.2025 17:28:44 ******/
+/****** Object:  Table [dbo].[UserAnswers]    Script Date: 06.04.2025 18:07:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,7 +99,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 04.04.2025 17:28:44 ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 06.04.2025 18:07:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -118,15 +120,15 @@ PRIMARY KEY CLUSTERED
 GO
 SET IDENTITY_INSERT [dbo].[Answers] ON 
 GO
-INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (1, 1, N'Открытый огонь', 0)
+INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (1, 1, N'Неосторожное обращение с огнем', 0)
 GO
-INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (2, 1, N'Высокая температура', 0)
+INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (2, 1, N'Нарушение правил эксплуатации электрооборудования', 0)
 GO
-INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (3, 1, N'Токсичные продукты горения', 1)
+INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (3, 1, N'Природные катаклизмы', 0)
 GO
-INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (4, 1, N'Обрушение конструкций', 0)
+INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (4, 1, N'Проблемы с вентиляцией', 0)
 GO
-INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (5, 1, N'Дефицит кислорода', 0)
+INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (5, 1, N'Износ строительных конструкций', 1)
 GO
 INSERT [dbo].[Answers] ([AnswerID], [QuestionID], [AnswerText], [IsCorrectAnswer]) VALUES (6, 2, N'Положить ладонь на дверь', 1)
 GO
@@ -222,7 +224,7 @@ SET IDENTITY_INSERT [dbo].[Answers] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Questions] ON 
 GO
-INSERT [dbo].[Questions] ([QuestionID], [QuestionText]) VALUES (1, N'Какой из перечисленных факторов наиболее опасен при пожаре в закрытом помещении?')
+INSERT [dbo].[Questions] ([QuestionID], [QuestionText]) VALUES (1, N'Какой из следующих факторов НЕ относится к основным причинам возникновения пожаров?')
 GO
 INSERT [dbo].[Questions] ([QuestionID], [QuestionText]) VALUES (2, N'Каким способом можно определить температуру за дверью горящего помещения?')
 GO
@@ -244,6 +246,16 @@ INSERT [dbo].[Questions] ([QuestionID], [QuestionText]) VALUES (10, N'Какие
 GO
 SET IDENTITY_INSERT [dbo].[Questions] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Results] ON 
+GO
+INSERT [dbo].[Results] ([ResultID], [UserID], [TestDate], [UserScore], [StatusID]) VALUES (1, 7, CAST(N'2025-04-04T21:19:02.6453129' AS DateTime2), 0, 2)
+GO
+INSERT [dbo].[Results] ([ResultID], [UserID], [TestDate], [UserScore], [StatusID]) VALUES (2, 16, CAST(N'2025-04-06T12:43:28.3097460' AS DateTime2), 3, 2)
+GO
+INSERT [dbo].[Results] ([ResultID], [UserID], [TestDate], [UserScore], [StatusID]) VALUES (3, 54, CAST(N'2025-04-06T16:49:18.1483256' AS DateTime2), 6, 2)
+GO
+SET IDENTITY_INSERT [dbo].[Results] OFF
+GO
 SET IDENTITY_INSERT [dbo].[Roles] ON 
 GO
 INSERT [dbo].[Roles] ([RoleID], [Rolename]) VALUES (1, N'инструктор')
@@ -261,6 +273,70 @@ GO
 INSERT [dbo].[TestStatuses] ([StatusID], [Statusname]) VALUES (2, N'не пройден')
 GO
 SET IDENTITY_INSERT [dbo].[TestStatuses] OFF
+GO
+SET IDENTITY_INSERT [dbo].[UserAnswers] ON 
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (1, 7, 1, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (2, 7, 2, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (3, 7, 3, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (4, 7, 4, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (5, 7, 5, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (6, 7, 6, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (7, 7, 7, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (8, 7, 8, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (9, 7, 9, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (10, 7, 10, NULL, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (11, 16, 1, 5, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (12, 16, 2, 6, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (13, 16, 3, 12, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (14, 16, 4, 17, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (15, 16, 5, 21, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (16, 16, 6, 28, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (17, 16, 7, 33, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (18, 16, 8, 37, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (19, 16, 9, 42, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (20, 16, 10, 47, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (21, 54, 1, 5, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (22, 54, 2, 7, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (23, 54, 3, 13, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (24, 54, 4, 17, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (25, 54, 5, 24, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (26, 54, 6, 27, 0)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (27, 54, 7, 33, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (28, 54, 8, 37, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (29, 54, 9, 42, 1)
+GO
+INSERT [dbo].[UserAnswers] ([UserAnswerID], [UserID], [QuestionID], [AnswerID], [IsCorrect]) VALUES (30, 54, 10, 47, 1)
+GO
+SET IDENTITY_INSERT [dbo].[UserAnswers] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Users] ON 
 GO
@@ -284,7 +360,7 @@ INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [U
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (10, N'Николай', N'Николаев', N'Николаевич', 2, N'nikolaevnn', N'password10  ')
 GO
-INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (11, N'Артем', N'Артемов', N'Артемович', 2, N'artemovaa', N'password11  ')
+INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (11, N'Артем', N'Артемов', N'Артемович', 2, N'artemovaa', N'password11')
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (12, N'Владимир', N'Владимиров', N'Владимирович', 2, N'vladimirov', N'password12  ')
 GO
@@ -292,9 +368,9 @@ INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [U
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (14, N'Павел', N'Павлов', N'Павлович', 1, N'pavlovpp', N'password14  ')
 GO
-INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (15, N'Константин', N'Константинов', N'Константинович', 2, N'konstantin', N'password15  ')
+INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (15, N'Константин', N'Константинов', N'Константинович', 2, N'konstantin', N'password15')
 GO
-INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (16, N'Станислав', N'Станиславов', N'Станиславович', 3, N'stanislavs', N'password16  ')
+INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (16, N'Станислав', N'Станиславов', N'Станиславович', 3, N'stanislavs', N'password16')
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (17, N'Григорий', N'Григорьев', N'Григорьевич', 1, N'grigorevgg', N'password17  ')
 GO
@@ -312,7 +388,7 @@ INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [U
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (24, N'Виталий', N'Витальев', N'Витальевич', 3, N'vitalyevvv', N'password24  ')
 GO
-INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (25, N'Георгий', N'Георгиев', N'Георгиевич', 2, N'georgievgg', N'password25  ')
+INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (25, N'Георгий', N'Георгиев', N'Георгиевич', 2, N'georgievgg', N'password25')
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (26, N'Даниил', N'Даниилов', N'Даниилович', 3, N'daniilovdd', N'password26  ')
 GO
@@ -370,7 +446,7 @@ INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [U
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (53, N'Глеб', N'Глебов', N'Глебович', 2, N'glebovgg', N'password53  ')
 GO
-INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (54, N'Демьян', N'Демьянов', N'Демьянович', 3, N'demjanovdd', N'password54  ')
+INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (54, N'Демьян', N'Демьянов', N'Демьянович', 3, N'demjanovdd', N'password54')
 GO
 INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Surname], [RoleID], [UserLogin], [UserPassword]) VALUES (55, N'Елисей', N'Елисеев', N'Елисеевич', 1, N'eliseyevvv', N'password55  ')
 GO
@@ -428,7 +504,7 @@ SET IDENTITY_INSERT [dbo].[Users] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ__Users__7F8E8D5E0B20C308]    Script Date: 04.04.2025 17:28:44 ******/
+/****** Object:  Index [UQ__Users__7F8E8D5E0B20C308]    Script Date: 06.04.2025 18:08:00 ******/
 ALTER TABLE [dbo].[Users] ADD UNIQUE NONCLUSTERED 
 (
 	[UserLogin] ASC
