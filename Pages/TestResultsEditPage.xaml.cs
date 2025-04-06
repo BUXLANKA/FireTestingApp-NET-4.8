@@ -62,7 +62,11 @@ namespace FireTestingApp.Pages
                 try
                 {
                     ConnectObject.GetConnect().SaveChanges();
-                    MessageBox.Show($"done!");
+                    MessageBox.Show(
+                        "Данные успешно изменены!",
+                        "Редактор результатов",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
@@ -73,7 +77,11 @@ namespace FireTestingApp.Pages
             }
             else
             {
-                MessageBox.Show($"err");
+                MessageBox.Show(
+                    "Указаны неверные данные!",
+                    "Ошибка редактирования",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
     }
