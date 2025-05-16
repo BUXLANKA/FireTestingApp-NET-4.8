@@ -6,26 +6,24 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Data.Entity;
 using FireTestingApp.Classes;
-using System.Data.Entity.Migrations;
-using System.Linq.Expressions;  // Добавь это пространство имен
 
 namespace FireTestingApp.Pages
 {
     public partial class MainTestPage : Page
     {
-        //Номер текущего вопроса
+        // Номер текущего вопроса
         private int currentQuestionIndex = 0;
 
-        // Количество бвллов
+        // Количество баллов
         private int score = 0;
 
-        // Список всех вопросов, загруженных из базы данных вместе с ответами
+        // Список случайно выбранных вопросов
         private List<Question> questions;
 
-        //Объект для хранения итогового результата конкретного пользователя
+        // Объект для хранения итогового результата конкретного пользователя
         private Result CurrentResults = new Result();
 
-        //Объект для хранения ответа пользователя на текущий вопрос
+        // Объект для хранения ответа пользователя на текущий вопрос
         private UserAnswer CurrentUserAnswer = new UserAnswer();
 
         public MainTestPage()
@@ -35,17 +33,19 @@ namespace FireTestingApp.Pages
             // Подключаемся к базе данных и загружаем вопросы с ответами
             using (var context = new FireSafetyDBEntities())
             {
-                // Загружаем все вопросы с их ответами
-                var questionsFromDb = context.Questions.Include(q => q.Answers).ToList();
+                // Загружаем все вопросы с их ответами в память
+                var questionsFromDb = context.Questions
+                    .Include(q => q.Answers)
+                    .ToList(); // Загружаем в память перед сортировкой
 
-                // Собираем всё в список
-                questions = questionsFromDb.Select(q => new Question
-                {
-                    QuestionID = q.QuestionID,
-                    QuestionText = q.QuestionText,
-                    Answers = q.Answers.ToList()  // Преобразуем ICollection<Answer> в List<Answer>
-                }).ToList();
+                // Выбираем 10 случайных вопросов
+                Random rand = new Random();
+                questions = questionsFromDb
+                    .OrderBy(x => rand.Next()) // Случайная сортировка на стороне клиента
+                    .Take(5) // Берем только 5 вопросов
+                    .ToList();
             }
+
             // Загружаем первый вопрос
             LoadQuestion();
         }
@@ -58,7 +58,7 @@ namespace FireTestingApp.Pages
             // Отображаем текст вопроса
             QuestionTB.Text = question.QuestionText;
 
-            // Очищаем все элементы управления (если они есть)
+            // Очищаем все элементы управления
             Option1.IsChecked = false;
             Option2.IsChecked = false;
             Option3.IsChecked = false;
@@ -98,7 +98,7 @@ namespace FireTestingApp.Pages
             CurrentUserAnswer.QuestionID = question.QuestionID;
             CurrentUserAnswer.AnswerID = selectedAnswer?.AnswerID;
 
-            // ***Теперь сравниваем именно ID!***
+            // Сравниваем ID правильного ответа
             if (selectedAnswer != null && selectedAnswer.AnswerID == correctAnswer.AnswerID)
             {
                 score++;
@@ -117,13 +117,22 @@ namespace FireTestingApp.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Ошибка при сохранении ответа: {ex.Message}");
                 throw;
             }
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
+            // Проверяем, выбран ли ответ
+            if (Option1.IsChecked != true && Option2.IsChecked != true &&
+                Option3.IsChecked != true && Option4.IsChecked != true &&
+                Option5.IsChecked != true)
+            {
+                MessageBox.Show("Пожалуйста, выберите один из вариантов ответа!");
+                return;
+            }
+
             CheckIsCorrect();
 
             if (currentQuestionIndex < questions.Count - 1)
@@ -139,7 +148,7 @@ namespace FireTestingApp.Pages
                 CurrentResults.TestDate = DateTime.Now;
                 CurrentResults.UserScore = Session.UserScore;
 
-                if(score >= 8)
+                if (score >= 8)
                 {
                     CurrentResults.StatusID = 1;
                 }
@@ -156,7 +165,7 @@ namespace FireTestingApp.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show($"Ошибка при сохранении результата: {ex.Message}");
                     throw;
                 }
                 NavigationService.Navigate(new EndPage());
