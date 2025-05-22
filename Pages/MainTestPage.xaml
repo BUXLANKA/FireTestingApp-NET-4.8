@@ -5,17 +5,25 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="670" d:DesignWidth="1087"
+      d:DesignHeight="640" d:DesignWidth="960"
       Title="MainTestPage">
 
-    <Grid Background="White">
-        <TextBlock x:Name="QuestionTB" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="215" Width="1057" FontSize="18" Foreground="Black" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="Option1" Content="RadioButton" Margin="10,269,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1054" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="Option2" Content="RadioButton" Margin="10,311,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1056" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="Option3" Content="RadioButton" Margin="10,353,0,0" VerticalAlignment="Top" FontSize="18" Height="36" Width="1056" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="Option4" Content="RadioButton" Margin="10,394,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1054" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="Option5" Content="RadioButton" Margin="10,436,0,0" VerticalAlignment="Top" FontSize="18" Height="37" Width="1056" BorderBrush="Black" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
-        <Button x:Name="NextButton" Content="ДАЛЕЕ" Height="56" Width="218" Click="NextButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,535,0,0"/>
+    <Grid Background="White" HorizontalAlignment="Stretch">
+        <TextBlock x:Name="QuestionTB" TextWrapping="Wrap" Text="TextBlock" FontSize="24" Foreground="Black" VerticalAlignment="Top" Margin="10,148,10,0" Height="128" FontWeight="Bold"/>
+        <RadioButton x:Name="Option1" Content="RadioButton" Margin="10,305,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="Option2" Content="RadioButton" Margin="10,347,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="Option3" Content="RadioButton" Margin="10,389,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="Option4" Content="RadioButton" Margin="10,430,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="Option5" Content="RadioButton" Margin="10,472,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
+        <Button x:Name="NextButton" Content="ДАЛЕЕ" Height="56" Width="218" Click="NextButton_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,18"/>
+        <Rectangle VerticalAlignment="Top" Height="98.8" Fill="#FF194F9E" Stroke="#FF568FE2"/>
+        <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" Margin="0,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="КОМПЬЮТЕРНАЯ СИCТЕМА ТЕСТИРОВАНИЯ МЧС РОССИИ"/><LineBreak/><Run Text="ПО ПОЖАРНОЙ БЕЗОПАСНОСТИ"/></TextBlock>
+        <Rectangle Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,9,0,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Assets/auto-891-1.png" TileMode="None" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock x:Name="QuestionIndexTB" TextWrapping="Wrap" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="#FF2575EA" Text="text" VerticalAlignment="Top" Margin="0,110,0,0"/>
 
     </Grid>
 </Page>

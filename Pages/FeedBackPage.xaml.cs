@@ -1,5 +1,4 @@
-﻿using FireTestingApp.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FireTestingApp
+namespace FireTestingApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для FeedBackPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FeedBackPage : Page
     {
-        public MainWindow()
+        public FeedBackPage()
         {
             InitializeComponent();
-
-            this.MinHeight = 640;
-            this.MinWidth = 960;
         }
     }
 }

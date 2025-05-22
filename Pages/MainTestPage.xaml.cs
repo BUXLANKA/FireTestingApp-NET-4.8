@@ -55,6 +55,8 @@ namespace FireTestingApp.Pages
             // Получаем текущий вопрос
             var question = questions[currentQuestionIndex];
 
+            QuestionIndexTB.Text = $"Вопрос №{(currentQuestionIndex + 1).ToString()}";
+
             // Отображаем текст вопроса
             QuestionTB.Text = question.QuestionText;
 

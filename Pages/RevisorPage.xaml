@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="670" d:DesignWidth="1087"
+      d:DesignHeight="640" d:DesignWidth="960"
       Title="RevisorPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid Background="White">
-        <TabControl>
+        <TabControl Margin="0,104,0,0" FontSize="14">
 
             <TabItem Header="Результаты тестирования">
                 <Grid Background="#FFE5E5E5">
@@ -31,6 +31,13 @@
             </TabItem>
 
         </TabControl>
+        <Rectangle VerticalAlignment="Top" Height="98.8" Fill="#FF194F9E" Stroke="#FF568FE2"/>
+        <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" Margin="0,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="КОМПЬЮТЕРНАЯ СИCТЕМА ТЕСТИРОВАНИЯ МЧС РОССИИ"/><LineBreak/><Run Text="ПО ПОЖАРНОЙ БЕЗОПАСНОСТИ"/></TextBlock>
+        <Rectangle Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,9,0,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Assets/auto-891-1.png" TileMode="None" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </Page>

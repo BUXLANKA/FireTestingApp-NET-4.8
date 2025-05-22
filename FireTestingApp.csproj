@@ -122,6 +122,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\FeedBackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\InstructorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +154,9 @@
   <ItemGroup>
     <Compile Include="Pages\EndPage.xaml.cs">
       <DependentUpon>EndPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FeedBackPage.xaml.cs">
+      <DependentUpon>FeedBackPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\InstructorPage.xaml.cs">
       <DependentUpon>InstructorPage.xaml</DependentUpon>

@@ -32,5 +32,10 @@ namespace FireTestingApp.Pages
         {
             NavigationService.Navigate(new LoginPage());
         }
+
+        private void FeedBackFormButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,13 +5,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="670" d:DesignWidth="1087"
+      d:DesignHeight="640" d:DesignWidth="960"
       Title="UserPage">
 
     <Grid Background="White">
-        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Height="244" Width="652" FontWeight="Bold" TextAlignment="Center" FontSize="20" HorizontalAlignment="Center"><Run Text="Этот тест направлен на проверку "/><Run Text="фундаментальных"/><Run Text=" знаний по основам пожарной безопасности стажерами МЧС России"/><LineBreak/><Run/><LineBreak/><Run Text="Вам будет представлено 10 тестовых вопросов. "/><LineBreak/><Run/><LineBreak/><Run Text="Время выполнения тестирования не ограничено"/><Run Language="ru-ru" Text="."/><Run/><LineBreak/><Run Language="ru-ru" Text="В"/><Run Text="озвратиться к прошлому вопросу нельзя"/><Run Text=" "/><LineBreak/><Run/><LineBreak/><Run Text="Удачи!"/></TextBlock>
-        <Button x:Name="StartTestButton" Content="НАЧАТЬ ТЕСТИРОВАНИЕ" Height="44" Click="StartTestButton_Click" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,500,0,0" Width="307"/>
-        <TextBlock x:Name="HelloLabel" HorizontalAlignment="Center" Margin="0,158,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="32" Width="428" TextAlignment="Center" FontSize="16"/>
+        <TextBlock TextWrapping="Wrap" FontWeight="Bold" TextAlignment="Center" FontSize="20" VerticalAlignment="Center" Margin="10,0,10,0"><Run Language="ru-ru" Text="Т"/><Run Text="ест направлен на проверку "/><Run Text="фундаментальных"/><Run Text=" знаний по основам пожарной безопасности стажерами МЧС России"/><LineBreak/><Run/><LineBreak/><Run Text="Вам будет представлено 10 тестовых вопросов. "/><LineBreak/><Run/><LineBreak/><Run Text="Время выполнения тестирования не ограничено"/><Run Text="."/><Run/><LineBreak/><Run Text="В"/><Run Text="ернуться"/><Run Text=" к прошлому вопросу нельзя"/><Run Text=" "/><LineBreak/><Run/><LineBreak/><Run Text="Желаем у"/><Run Text="дачи!"/></TextBlock>
+        <Button x:Name="StartTestButton" Content="НАЧАТЬ ТЕСТИРОВАНИЕ" Click="StartTestButton_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,473,0,35" Height="44" Width="346"/>
+        <TextBlock x:Name="HelloLabel" TextWrapping="Wrap" Text="TextBlock" TextAlignment="Center" FontSize="16" Width="346" VerticalAlignment="Top" Margin="0,135,0,0"/>
+        <Rectangle VerticalAlignment="Top" Height="98.8" Fill="#FF194F9E" Stroke="#FF568FE2"/>
+        <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="White" Margin="0,23,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="КОМПЬЮТЕРНАЯ СИCТЕМА ТЕСТИРОВАНИЯ МЧС РОССИИ"/><LineBreak/><Run Text="ПО ПОЖАРНОЙ БЕЗОПАСНОСТИ"/></TextBlock>
+        <Rectangle Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,9,0,0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Assets/auto-891-1.png" TileMode="None" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </Page>
