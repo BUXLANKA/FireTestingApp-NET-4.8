@@ -11,6 +11,7 @@ namespace FireTestingApp.Pages
 {
     public partial class MainTestPage : Page
     {
+        // Инициализация таймера
         Timer Timer = new Timer();
 
         // Номер текущего вопроса
@@ -34,14 +35,10 @@ namespace FireTestingApp.Pages
 
             //Timer Timer = new Timer();
 
-            Timer.SetMinutes(1);
+            Timer.SetMinutes(5);
             Timer.TimeUpdated += Timer_TimeUpdated;
             TimerLabel.Content = Timer.GetTimeLeft().ToString(@"mm\:ss");
             Timer.Start();
-
-            
-
-
 
             // Подключаемся к базе данных и загружаем вопросы с ответами
             using (var context = new FireSafetyDBEntities())
@@ -75,18 +72,31 @@ namespace FireTestingApp.Pages
             if (Timer.GetTimeLeft().TotalSeconds == 0)
             {
                 Timer.Stop();
-                MessageBox.Show("timer down");
+                MessageBox.Show(
+                    "Тест закрыт по истечению времени прохождения.",
+                    "Кажется, вы не успели...",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+
+                // добавление в базу данных данных о закрытии теста
+                CurrentResults.UserID = Session.UserID;
+                CurrentResults.TestDate = DateTime.Now;
+                CurrentResults.UserScore = 0;
+                CurrentResults.StatusID = 2;
+
+                ConnectObject.GetConnect().Results.Add(CurrentResults);
+                try
+                {
+                    ConnectObject.GetConnect().SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при сохранении результата: {ex.Message}");
+                    throw;
+                }
+                NavigationService.Navigate(new LoginPage());
             }
         }
-
-        //private void Timer_TimeUpdated(object sender, EventArgs e)
-        //{
-        //    // Обновление UI должно быть в главном потоке
-        //    Dispatcher.Invoke(() =>
-        //    {
-        //        TimerLabel.Content = Timer.GetTimeLeft().ToString(@"mm\:ss");
-        //    });
-        //}
 
         private void LoadQuestion()
         {

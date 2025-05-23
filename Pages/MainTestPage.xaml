@@ -24,7 +24,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock x:Name="QuestionIndexTB" TextWrapping="Wrap" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="#FF2575EA" Text="text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0" Width="127"/>
-        <Label x:Name="TimerLabel" Content="Label" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,110,10,0" Width="164"/>
+        <Label x:Name="TimerLabel" Content="Label" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,110,10,0" Width="164" FontSize="14"/>
 
     </Grid>
 </Page>

@@ -35,7 +35,7 @@ namespace FireTestingApp.Pages
 
         private void FeedBackFormButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new FeedBackPage());
         }
     }
 }
