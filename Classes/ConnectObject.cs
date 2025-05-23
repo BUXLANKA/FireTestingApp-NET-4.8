@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace FireTestingApp.Classes
 {
-    internal class ConnectObject
-    {
-        public static FireSafetyDBEntities connect;
-
-        public static FireSafetyDBEntities GetConnect()
+        internal class ConnectObject
         {
-            if(connect == null)
+            public static FireSafetyDBEntities connect;
+
+            public static FireSafetyDBEntities GetConnect()
             {
-                connect = new FireSafetyDBEntities();
+                if(connect == null)
+                {
+                    connect = new FireSafetyDBEntities();
+                }
+                return connect;
             }
-            return connect;
         }
-    }
 }

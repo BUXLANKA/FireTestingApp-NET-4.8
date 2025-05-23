@@ -33,6 +33,24 @@ namespace FireTestingApp.Pages
         {
             if(!string.IsNullOrWhiteSpace(TB_Login.Text) || !string.IsNullOrWhiteSpace(TB_Password.Password))
             {
+                // Обработка исключения ошибки подключения к БД
+                try
+                {
+                    ConnectObject.GetConnect().Database.Connection.Open();
+                }
+                catch
+                {
+                    MessageBox.Show(
+                       $"Программа не может найти активного подключения с сервером! Обратитесь к администратору.",
+                       "Ошибка соединения с сервером",
+                       MessageBoxButton.OK,
+                       MessageBoxImage.Error);
+                    return;
+                    throw;
+                }
+
+
+                // Основная логика авторизации
                 var User = ConnectObject.GetConnect().Users.AsNoTracking()
                     .FirstOrDefault(u => u.UserLogin == TB_Login.Text);
 
