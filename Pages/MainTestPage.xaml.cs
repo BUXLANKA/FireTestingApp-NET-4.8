@@ -11,6 +11,8 @@ namespace FireTestingApp.Pages
 {
     public partial class MainTestPage : Page
     {
+        Timer Timer = new Timer();
+
         // Номер текущего вопроса
         private int currentQuestionIndex = 0;
 
@@ -29,6 +31,17 @@ namespace FireTestingApp.Pages
         public MainTestPage()
         {
             InitializeComponent();
+
+            //Timer Timer = new Timer();
+
+            Timer.SetMinutes(1);
+            Timer.TimeUpdated += Timer_TimeUpdated;
+            TimerLabel.Content = Timer.GetTimeLeft().ToString(@"mm\:ss");
+            Timer.Start();
+
+            
+
+
 
             // Подключаемся к базе данных и загружаем вопросы с ответами
             using (var context = new FireSafetyDBEntities())
@@ -49,6 +62,31 @@ namespace FireTestingApp.Pages
             // Загружаем первый вопрос
             LoadQuestion();
         }
+
+        private void Timer_TimeUpdated(object sender, EventArgs e)
+        {
+            Dispatcher.Invoke(UpdateTimerLabel);
+        }
+
+        private void UpdateTimerLabel()
+        {
+            TimerLabel.Content = Timer.GetTimeLeft().ToString(@"mm\:ss");
+
+            if (Timer.GetTimeLeft().TotalSeconds == 0)
+            {
+                Timer.Stop();
+                MessageBox.Show("timer down");
+            }
+        }
+
+        //private void Timer_TimeUpdated(object sender, EventArgs e)
+        //{
+        //    // Обновление UI должно быть в главном потоке
+        //    Dispatcher.Invoke(() =>
+        //    {
+        //        TimerLabel.Content = Timer.GetTimeLeft().ToString(@"mm\:ss");
+        //    });
+        //}
 
         private void LoadQuestion()
         {
