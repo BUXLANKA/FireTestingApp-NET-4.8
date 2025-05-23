@@ -55,7 +55,7 @@ namespace FireTestingApp.Pages
                 Random rand = new Random();
                 questions = questionsFromDb
                     .OrderBy(x => rand.Next()) // Случайная сортировка на стороне клиента
-                    .Take(5) // Берем только 5 вопросов
+                    .Take(10) // Берем только 5 вопросов
                     .ToList();
             }
 

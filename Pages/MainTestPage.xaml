@@ -9,7 +9,7 @@
       Title="MainTestPage">
 
     <Grid Background="White" HorizontalAlignment="Stretch">
-        <TextBlock x:Name="QuestionTB" TextWrapping="Wrap" Text="TextBlock" FontSize="24" Foreground="Black" VerticalAlignment="Top" Margin="10,148,10,0" Height="128" FontWeight="Bold" Background="Red"/>
+        <TextBlock x:Name="QuestionTB" TextWrapping="Wrap" Text="TextBlock" FontSize="24" Foreground="Black" VerticalAlignment="Top" Margin="10,148,10,0" Height="128" FontWeight="Bold"/>
         <RadioButton x:Name="Option1" Content="RadioButton" Margin="10,305,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
         <RadioButton x:Name="Option2" Content="RadioButton" Margin="10,347,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
         <RadioButton x:Name="Option3" Content="RadioButton" Margin="10,389,0,0" VerticalAlignment="Top" FontSize="20" BorderBrush="Black" VerticalContentAlignment="Center"/>
@@ -23,7 +23,7 @@
                 <ImageBrush ImageSource="/Assets/auto-891-1.png" TileMode="None" Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock x:Name="QuestionIndexTB" TextWrapping="Wrap" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="#FF2575EA" Text="text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0" Width="127" Background="Red"/>
+        <TextBlock x:Name="QuestionIndexTB" TextWrapping="Wrap" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="#FF2575EA" Text="text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0" Width="127"/>
         <Label x:Name="TimerLabel" Content="Label" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,110,10,0" Width="164"/>
 
     </Grid>
