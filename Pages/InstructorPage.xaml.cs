@@ -30,6 +30,16 @@ namespace FireTestingApp.Pages
 
             DGUsersResults.ItemsSource = ConnectObject.GetConnect().Results.ToList();
             DGUserAnswers.ItemsSource = ConnectObject.GetConnect().UserAnswers.ToList();
+            DGUserTickets.ItemsSource = ConnectObject.GetConnect().Tickets.ToList();
+
+            if (Session.RoleID != 4)
+            {
+                DGTickets.IsEnabled = false;
+            }
+            else
+            {
+                DGTickets.IsEnabled = true;
+            }
         }
 
         private void EditUsersButton_Click(object sender, RoutedEventArgs e)

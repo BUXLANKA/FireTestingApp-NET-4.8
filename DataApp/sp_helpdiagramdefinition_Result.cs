@@ -10,19 +10,10 @@
 namespace FireTestingApp.DataApp
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class UserAnswer
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int UserAnswerID { get; set; }
-        public System.DateTime AnswerDate { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<int> QuestionID { get; set; }
-        public Nullable<int> AnswerID { get; set; }
-        public bool IsCorrect { get; set; }
-    
-        public virtual Answer Answer { get; set; }
-        public virtual Question Question { get; set; }
-        public virtual User User { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

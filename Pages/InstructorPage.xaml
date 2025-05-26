@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:FireTestingApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="640" d:DesignWidth="960"
-      Title="InstructorPage" IsVisibleChanged="Page_IsVisibleChanged" Margin="0,119,0,0">
+      Title="InstructorPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid Background="White">
         <TabControl Margin="0,104,0,0" FontSize="14">
@@ -45,6 +45,7 @@
                             <DataGridTextColumn Header="Имя" Binding="{Binding User.Firstname}"/>
                             <DataGridTextColumn Header="Фамилия" Binding="{Binding User.Lastname}"/>
                             <DataGridTextColumn Header="Отчество" Binding="{Binding User.Surname}"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding AnswerDate, StringFormat=dd.MM.yyy | HH:MM}"/>
                             <DataGridTextColumn Header="Вопрос" Binding="{Binding Question.QuestionText}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock">
@@ -57,6 +58,20 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="DGTickets" Header="Тикеты">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="DGUserTickets" AutoGenerateColumns="False" ColumnWidth="auto" IsReadOnly="True" Margin="0,0,303,0" FontSize="14">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding User.Firstname}"/>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding User.Lastname}"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding User.Surname}"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding TicketDate, StringFormat=dd.MM.yyy | HH:MM}"/>
+                            <DataGridTextColumn Header="Описание" Binding="{Binding TicketText}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
 

@@ -147,6 +147,7 @@ namespace FireTestingApp.Pages
             CurrentUserAnswer.UserID = Session.UserID;
             CurrentUserAnswer.QuestionID = question.QuestionID;
             CurrentUserAnswer.AnswerID = selectedAnswer?.AnswerID;
+            CurrentUserAnswer.AnswerDate = DateTime.Now;
 
             // Сравниваем ID правильного ответа
             if (selectedAnswer != null && selectedAnswer.AnswerID == correctAnswer.AnswerID)
@@ -192,6 +193,8 @@ namespace FireTestingApp.Pages
             }
             else
             {
+                Timer.Stop();
+
                 Session.UserScore = score;
 
                 CurrentResults.UserID = Session.UserID;
