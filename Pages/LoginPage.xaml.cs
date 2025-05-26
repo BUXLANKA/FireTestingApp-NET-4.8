@@ -89,6 +89,9 @@ namespace FireTestingApp.Pages
                                 NavigationService.Navigate(new UserPage());
                             }
                             break;
+                        case 4:
+                            NavigationService.Navigate(new InstructorPage());
+                            break;
                     }
                 }
                 else
