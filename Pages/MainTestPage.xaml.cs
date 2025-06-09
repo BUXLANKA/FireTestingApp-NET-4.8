@@ -33,8 +33,6 @@ namespace FireTestingApp.Pages
         {
             InitializeComponent();
 
-            //Timer Timer = new Timer();
-
             Timer.SetMinutes(5);
             Timer.TimeUpdated += Timer_TimeUpdated;
             TimerLabel.Content = Timer.GetTimeLeft().ToString(@"mm\:ss");
@@ -52,7 +50,7 @@ namespace FireTestingApp.Pages
                 Random rand = new Random();
                 questions = questionsFromDb
                     .OrderBy(x => rand.Next()) // Случайная сортировка на стороне клиента
-                    .Take(10) // Берем только 5 вопросов
+                    .Take(10) // Берем только 10 вопросов
                     .ToList();
             }
 

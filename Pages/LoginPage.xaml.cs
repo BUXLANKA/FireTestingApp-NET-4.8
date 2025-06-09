@@ -33,57 +33,70 @@ namespace FireTestingApp.Pages
         {
             if(!string.IsNullOrWhiteSpace(TB_Login.Text) || !string.IsNullOrWhiteSpace(TB_Password.Password))
             {
-                // Основная логика авторизации
-                var User = ConnectObject.GetConnect().Users.AsNoTracking()
-                    .FirstOrDefault(u => u.UserLogin == TB_Login.Text);
-
-                if (User != null && User.UserLogin == TB_Login.Text && User.UserPassword == TB_Password.Password)
+                try
                 {
-                    Session.UserID = User.UserID;
-                    Session.RoleID = User.RoleID;
-                    Session.UserFirstname = User.Firstname;
-                    Session.UserLastname = User.Lastname;
+                    // Основная логика авторизации
+                    var User = ConnectObject.GetConnect().Users.AsNoTracking()
+                        .FirstOrDefault(u => u.UserLogin == TB_Login.Text);
 
-                    switch (Session.RoleID)
+                    if (User != null && User.UserLogin == TB_Login.Text && User.UserPassword == TB_Password.Password)
                     {
-                        case 1:
-                            NavigationService.Navigate(new InstructorPage());
-                            break;
+                        Session.UserID = User.UserID;
+                        Session.RoleID = User.RoleID;
+                        Session.UserFirstname = User.Firstname;
+                        Session.UserLastname = User.Lastname;
 
-                        case 2:
-                            NavigationService.Navigate(new RevisorPage());
-                            break;
+                        switch (Session.RoleID)
+                        {
+                            case 1:
+                                NavigationService.Navigate(new InstructorPage());
+                                break;
 
-                        case 3:
-                            var ExamDateRestrict = ConnectObject.GetConnect().Results.AsNoTracking()
-                                .FirstOrDefault(t => t.UserID == Session.UserID);
+                            case 2:
+                                NavigationService.Navigate(new RevisorPage());
+                                break;
 
-                            if (ExamDateRestrict?.TestDate != null && (DateTime.Now - ExamDateRestrict.TestDate).TotalDays <= 31)
-                            {
-                                MessageBox.Show(
-                                    "Повторная сдача будет доступна после 31 дня с момента последней сдачи.\nЗа подробностями обратитесь к инструктору.",
-                                    "Информация",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Information);
-                                return;
-                            }
-                            else
-                            {
-                                NavigationService.Navigate(new UserPage());
-                            }
-                            break;
-                        case 4:
-                            NavigationService.Navigate(new InstructorPage());
-                            break;
+                            case 3:
+                                var ExamDateRestrict = ConnectObject.GetConnect().Results.AsNoTracking()
+                                    .FirstOrDefault(t => t.UserID == Session.UserID);
+
+                                if (ExamDateRestrict?.TestDate != null && (DateTime.Now - ExamDateRestrict.TestDate).TotalDays <= 31)
+                                {
+                                    MessageBox.Show(
+                                        "Повторная сдача будет доступна после 31 дня с момента последней сдачи.\nЗа подробностями обратитесь к инструктору.",
+                                        "Информация",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Information);
+                                    return;
+                                }
+                                else
+                                {
+                                    NavigationService.Navigate(new UserPage());
+                                }
+                                break;
+                            case 4:
+                                NavigationService.Navigate(new InstructorPage());
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Неправильный логин или пароль",
+                            "Ошибка авторизации",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
                     }
                 }
-                else
+                catch (Exception)
                 {
-                   MessageBox.Show(
-                       "Неправильный логин или пароль",
-                       "Ошибка авторизации",
-                       MessageBoxButton.OK,
-                       MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Не удаётся создать соединение с базой данный. Обратитесь к администратору.",
+                        "Ошибка сервера",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                    return;
+                    throw;
                 }
             }
             else
