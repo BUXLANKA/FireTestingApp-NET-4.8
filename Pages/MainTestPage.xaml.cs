@@ -1,11 +1,11 @@
-﻿using FireTestingApp.DataApp;
+﻿using FireTestingApp.Classes;
+using FireTestingApp.DataApp;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Data.Entity;
-using FireTestingApp.Classes;
 
 namespace FireTestingApp.Pages
 {
