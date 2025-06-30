@@ -74,54 +74,84 @@
     </Compile>
     <Compile Include="Classes\ConnectObject.cs" />
     <Compile Include="Classes\Session.cs" />
+    <Compile Include="Classes\Timer.cs" />
     <Compile Include="DataApp\Answer.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataApp\FSDBModel.Context.cs">
+    <Compile Include="DataApp\AppDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FSDBModel.Context.tt</DependentUpon>
+      <DependentUpon>AppDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataApp\FSDBModel.cs">
+    <Compile Include="DataApp\AppDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataApp\FSDBModel.Designer.cs">
+    <Compile Include="DataApp\AppDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FSDBModel.edmx</DependentUpon>
+      <DependentUpon>AppDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataApp\Question.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataApp\Result.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataApp\Role.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataApp\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataApp\sp_helpdiagrams_Result.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataApp\sysdiagram.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataApp\TestStatus.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataApp\Ticket.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataApp\User.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DataApp\UserAnswer.cs">
-      <DependentUpon>FSDBModel.tt</DependentUpon>
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EndPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FeedBackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\InstructorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RevisorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TestResultsEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,11 +161,26 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\EndPage.xaml.cs">
+      <DependentUpon>EndPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FeedBackPage.xaml.cs">
+      <DependentUpon>FeedBackPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\InstructorPage.xaml.cs">
       <DependentUpon>InstructorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainTestPage.xaml.cs">
+      <DependentUpon>MainTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RevisorPage.xaml.cs">
+      <DependentUpon>RevisorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TestResultsEditPage.xaml.cs">
+      <DependentUpon>TestResultsEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
@@ -157,12 +202,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataApp\FSDBModel.edmx">
+    <EntityDeploy Include="DataApp\AppDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FSDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AppDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataApp\FSDBModel.edmx.diagram">
-      <DependentUpon>FSDBModel.edmx</DependentUpon>
+    <None Include="DataApp\AppDB.edmx.diagram">
+      <DependentUpon>AppDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -173,10 +218,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataApp\SQL\" />
-    <Folder Include="Pages\Question\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\auto-891-1.png" />
   </ItemGroup>
@@ -184,16 +226,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataApp\FSDBModel.Context.tt">
+    <Content Include="DataApp\AppDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FSDBModel.edmx</DependentUpon>
-      <LastGenOutput>FSDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>AppDB.edmx</DependentUpon>
+      <LastGenOutput>AppDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DataApp\FSDBModel.tt">
+    <Content Include="DataApp\AppDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FSDBModel.edmx</DependentUpon>
-      <LastGenOutput>FSDBModel.cs</LastGenOutput>
+      <DependentUpon>AppDB.edmx</DependentUpon>
+      <LastGenOutput>AppDB.cs</LastGenOutput>
     </Content>
+    <Content Include="DataApp\SQL\DB-DUMP.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
