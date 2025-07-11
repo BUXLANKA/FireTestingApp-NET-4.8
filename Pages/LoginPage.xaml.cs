@@ -6,6 +6,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
+// scatfold-db-context Scaffold-DbContext "Host=localhost;Database=mydb;Username=myuser;Password=mypass" Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models -Context AppDbContext -Schema fire_safety_system -DataAnnotations
+
 namespace FireTestingApp.Pages
 {
     /// <summary>
